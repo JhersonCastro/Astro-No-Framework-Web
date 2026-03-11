@@ -7,14 +7,14 @@
       <h1>A <span class="hero-net">.NET</span> Developer</h1>
       <h2 aria-label="Jherson Castro">JhersonCastro (Bucket!)</h2>
   </div>
-  <div class="hero-footer flex flex-col items-center space-y-2">
+  <div class="hero-footer flex-center flex-col">
       <svg xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
           viewBox="0 0 24 24" 
           stroke-width="1.5" 
           stroke="currentColor" 
           aria-hidden="true"
-          class="w-8 h-8">
+          class="size-8">
           <path stroke-linecap="round" stroke-linejoin="round" 
               d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
       </svg>
@@ -22,6 +22,18 @@
   </div>
 </section>
 <style is:global>
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-col {
+  flex-direction: column;
+}
+.size-8{
+  width: 2rem;
+  height: 2rem;
+}
 .hero {
   height: 100vh; 
   height: 100dvh;
@@ -76,5 +88,4 @@
     font-size: 1rem;
   }
 }
-
 </style>

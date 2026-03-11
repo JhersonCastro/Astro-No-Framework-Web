@@ -12,9 +12,14 @@ import Form from '../components/Form.astro';
 	<Start></Start>
 	<AboutMe></AboutMe>
 	<RoundedSection></RoundedSection>
-	<div class="bg-linear-to-b from-[#B42B31] to-purple-900 ">
+	<div class="degradient-bg">
 		<HobbieController></HobbieController>
 		<ProyectController></ProyectController>
 		<Form></Form>
 	</div>
 </Layout>
+<style is:global>
+  .degradient-bg {
+	background-image: linear-gradient(to bottom, #B42B31, #59168b );
+  }
+</style>

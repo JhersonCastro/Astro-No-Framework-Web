@@ -3,45 +3,52 @@ import { Image } from "astro:assets";
 import programming from "../../assets/Programming.png";
 ---
 
-<section class="py-16 md:py-24  text-white">
-  <div class="container mx-auto px-4 max-w-7xl">
-    
-   
+<section id="programming-section" class="section">
 
-    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 xl:gap-20">
-      
-      <div class="flex-1 text-center lg:text-left space-y-6 md:space-y-8">
-        
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text text-white">
-            Programar: el mas obvio
-          </h2>
-        </div>
-        
-        <p class="text-lg text-left md:text-xl lg:text-2xl text-purple-100 leading-relaxed max-w-2xl lg:mx-0 mx-auto">
+  <div class="container">
+
+    <div class="header">
+      <h2 class="title">
+        Programar: el mas obvio
+      </h2>
+    </div>
+
+    <div class="layout">
+
+      <div class="text-side">
+        <p class="programming-text">
           Me gusta programar porque me permite crear soluciones y transformar ideas en proyectos reales. Siempre hay algo nuevo que aprender.
         </p>
       </div>
-      <div class="flex-1 flex justify-center items-center w-full max-w-md lg:max-w-none">
-        <div class="relative group w-full">
-          
-          <div class="relative bg-purple-800/30 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20 shadow-2xl">
+
+      <div class="image-side">
+        <div class="image-wrapper">
+
+          <div class="card">
             <Image 
               src={programming} 
-              alt="Programación - Código en pantalla" 
-              class="w-full h-auto rounded-xl shadow-lg object-cover aspect-video"
+              alt="Programación - Código en pantalla"
+              class="section-img"
               loading="lazy"
             />
           </div>
+
         </div>
       </div>
+
     </div>
-    </div>
+
   </div>
+
 </section>
 
-<style is:global>
-  .group:hover .blur-xl {
-    transition: opacity 0.5s ease;
-  }
+<style>
+
+.programming-text{
+  font-size:1.6rem;
+  line-height:1.6;
+  color:#e9d5ff;
+  max-width:600px;
+}
+
 </style>

@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import BileTitanDeath from "../../assets/FrameHelldivers.jpg";
+---
+
+<section id="videojuegos-section" class="section relative overflow-hidden">
+
+<div class="container">
+
+  <div class="header">
+    <h2 class="title">
+      Videojuegos
+    </h2>
+  </div>
+
+  <div class="layout">
+
+    <div class="text-side">
+
+      <p class="games-text">
+        Los videojuegos son mi escape favorito. Desde 
+        <span class="game-highlight">
+          Helldivers 2
+        </span> 
+        hasta clásicos como 
+        <span class="game-highlight2">
+          Minecraft
+        </span>, 
+        cada partida es una nueva aventura.
+      </p>
+
+    </div>
+
+    <div class="image-side">
+      <div class="image-wrapper">
+
+        <div class="card">
+
+          <Image 
+            src={BileTitanDeath} 
+            alt="Bile Titan Death"
+            class="section-img"
+          />
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</section>

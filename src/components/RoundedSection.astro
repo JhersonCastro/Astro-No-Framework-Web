@@ -1,15 +1,4 @@
 ---
-export interface Props {
-  imagenSrc?: string;
-  textos?: string[];
-}
-import { Image } from "astro:assets";
-
-import FrameMiku  from "../assets/FrameMiku.png";
-const { 
-  imagenSrc = FrameMiku,
-  textos = ["Nivel: Universidad", "Institución: Universidad del cauca", "Años: 2023-2026"]
-} = Astro.props;
 ---
 <section id="RotationSection">
   <table>
@@ -31,8 +20,40 @@ const {
   </table>
 </section>
 
-
 <style is:global>
- 
-</style>
 
+#RotationSection{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:2rem;
+}
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  max-width:600px;
+  font-size:1.2rem;
+  text-align:center;
+  border:2px solid #ccc;
+}
+
+caption{
+  font-size:1.4rem;
+  margin-bottom:1rem;
+  font-weight:bold;
+}
+
+th, td{
+  border:1px solid #ddd;
+  padding:0.8rem;
+}
+
+thead{
+  background:#f5f5f5;
+}
+tbody{
+  background:#f9f9f9;
+}
+
+</style>
