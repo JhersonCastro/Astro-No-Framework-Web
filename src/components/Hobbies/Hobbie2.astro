@@ -1,0 +1,163 @@
+---
+import { Image } from "astro:assets";
+import musica from "../../assets/musica.png"
+---
+
+<section id="musica-section" class="relative py-16 md:py-24 text-white overflow-hidden">
+  
+  <!-- Generator -->
+  <div id="notas-container" class="absolute inset-0 pointer-events-none z-10">
+  </div>
+
+  <div class="container mx-auto px-4 max-w-7xl relative z-20">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-white">
+        Musica
+      </h2>
+    </div>
+
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      
+      <div class="flex-1 flex justify-center order-2 lg:order-1">
+        <div class="relative max-w-md lg:max-w-lg">
+
+          
+          <div class="relative bg-purple-800/30 backdrop-blur-sm rounded-3xl p-4 border-2 border-purple-400/50 shadow-2xl">
+            <Image 
+              src={musica} 
+              alt="Persona escuchando música con auriculares" 
+              class="w-full h-auto rounded-2xl shadow-lg object-cover aspect-square"
+              loading="lazy"
+            />
+            
+            <div class="absolute -top-6 -right-2 text-4xl animate-bounce opacity-50">♪</div>
+            <div class="absolute -bottom-4 -left-4 text-3xl animate-pulse opacity-40">♫</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 text-center lg:text-left space-y-6 order-1 lg:order-2">
+        
+        
+        <p class="text-xl md:text-2xl lg:text-3xl leading-relaxed text-purple-50 font-light">
+          Me gusta escuchar desde pop hasta música antigua como 
+          <span class="font-semibold text-transparent bg-clip-text bg-linear-to-r from-yellow-300 to-pink-300">
+            The Beatles, Michael Jackson o Queen
+          </span>. 
+          La música me relaja y me inspira, es un espacio donde conecto con emociones y creatividad.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .musical-note {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 2rem;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    z-index: 5;
+  }
+  
+  .musical-note:nth-child(3n) { font-size: 1.5rem; }
+  .musical-note:nth-child(3n+1) { font-size: 2.5rem; }
+  .musical-note:nth-child(5n) { font-size: 3rem; }
+  
+  .musical-note:nth-child(4n) { color: rgba(255, 215, 0, 0.5); } 
+  .musical-note:nth-child(5n+2) { color: rgba(255, 105, 180, 0.5); } 
+  .musical-note:nth-child(7n+3) { color: rgba(135, 206, 250, 0.5); } 
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('notas-container');
+    const section = document.getElementById('musica-section');
+    
+    const notas = ['♪', '♫', '♩', '♬'];
+    
+    for (let i = 0; i < 30; i++) {
+      const note = document.createElement('div');
+      note.className = 'musical-note';
+      
+      const left = Math.random() * 100;
+      
+      const symbol = notas[Math.floor(Math.random() * notas.length)];
+      
+      const delay = Math.random() * 2;
+      
+      note.textContent = symbol;
+      note.style.left = `${left}%`;
+      note.style.bottom = `-100px`; 
+      note.style.opacity = '0';
+      
+      note.dataset.delay = delay;
+      note.dataset.duration = 5 + Math.random() * 5; 
+      
+      container.appendChild(note);
+    }
+    
+    const musicalNotes = document.querySelectorAll('.musical-note');
+    
+    ScrollTrigger.create({
+      trigger: "#musica-section",
+      start: "top 80%", 
+      end: "bottom 20%",
+      onEnter: () => {
+        musicalNotes.forEach((note, index) => {
+          gsap.fromTo(note, 
+            {
+              y: 0,
+              opacity: 0,
+              rotation: 0
+            },
+            {
+              y: -800, 
+              opacity: 0.7,
+              rotation: 360,
+              duration: parseFloat(note.dataset.duration),
+              delay: parseFloat(note.dataset.delay),
+              ease: "power1.out",
+              repeat: -1, 
+              repeatDelay: Math.random() * 2,
+              onRepeat: () => {
+                gsap.set(note, { y: 0, opacity: 0 });
+              }
+            }
+          );
+        });
+      },
+      onLeave: () => {
+        musicalNotes.forEach(note => {
+          gsap.killTweensOf(note);
+          gsap.set(note, { opacity: 0 });
+        });
+      },
+      onEnterBack: () => {
+        musicalNotes.forEach((note, index) => {
+          gsap.to(note, {
+            y: -800,
+            opacity: 0.7,
+            rotation: 360,
+            duration: parseFloat(note.dataset.duration),
+            delay: parseFloat(note.dataset.delay),
+            ease: "power1.out",
+            repeat: -1,
+            repeatDelay: Math.random() * 2,
+            onRepeat: () => {
+              gsap.set(note, { y: 0, opacity: 0 });
+            }
+          });
+        });
+      }
+    });
+  });
+</script>

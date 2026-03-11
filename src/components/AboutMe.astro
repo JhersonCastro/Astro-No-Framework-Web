@@ -1,0 +1,139 @@
+---
+import { Image } from "astro:assets";
+import me from "../assets/me.jpg";
+---
+
+<section id="AboutMeSection" class="min-h-screen flex items-center justify-center p-4 md:p-8">
+  <article class="w-full max-w-6xl mx-auto rounded-3xl border border-gray-200 bg-white/90 backdrop-blur-sm p-6 md:p-10 shadow-xl">
+    
+    <p class="text-xl md:text-2xl text-pretty leading-relaxed mb-10" id="welcome-text">
+        Hey!, ¡Hey! Soy Jherson Andrés Castro Martínez, nací un viernes en el lejano 2 de septiembre del mejor año del mundo (2005), lo que significa que al día de hoy
+        <span class="text-blue-600 font-semibold px-1" id="dia-semana"></span>,
+        <span class="font-semibold px-1" id="fecha-completa"></span>,
+        ¡ando con <span class="text-fuchsia-600 font-semibold px-1" id="edad"></span> y contando!
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+      
+      <p class="text-xl md:text-2xl text-pretty leading-relaxed order-2 md:order-1">
+        Mi plan es conquistar el mundo del backend desde algún rincón: servidores veloces, peticiones concurrentes y sistemas que me permitan desplegar un viernes con calma. Me encanta aprender cosas nuevas, meterle curiosidad a todo y mantener la chispa encendida.
+      </p>
+
+      <figure class="order-1 md:order-2 max-w-md mx-auto w-full" id="image-section">
+        <div class="overflow-hidden rounded-3xl border-2 border-gray-200 shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:border-blue-200">
+          <p class="py-3 text-center text-xl md:text-2xl font-medium bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
+            Este soy yo :b
+          </p>
+          <Image id="img-me"
+            class="h-80 w-full object-cover object-center md:h-96"
+            src={me}
+            alt="Jherson Castro"
+            loading="lazy"
+          />
+        </div>
+      </figure>
+    </div>
+  </article>
+</section>
+
+<script>
+  const fecha = new Date();
+  
+  const dias = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  const diaSemana = dias[fecha.getDay()];
+  
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+  const año = fecha.getFullYear();
+  const fechaFormateada = `${dia}/${mes}/${año}`;
+  
+  const nacimiento = new Date(2005, 8, 2);
+  let edad = fecha.getFullYear() - nacimiento.getFullYear();
+  const mesActual = fecha.getMonth();
+  const diaActual = fecha.getDate();
+  
+  if (mesActual < 8 || (mesActual === 8 && diaActual < 2)) {
+    edad--;
+  }
+  
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // Actualizar fecha en el DOM
+    document.getElementById('dia-semana').textContent = diaSemana;
+    document.getElementById('fecha-completa').textContent = fechaFormateada;
+    document.getElementById('edad').textContent = `${edad} años`;
+    
+    const section = document.getElementById('AboutMeSection');
+    const paragraphs = document.querySelectorAll('#AboutMeSection p');
+    const imageContainer = document.getElementById('image-section');
+    const image = document.getElementById('img-me');
+    
+    gsap.set([paragraphs, imageContainer], {
+      autoAlpha: 0,
+      y: 30
+    });
+    
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#AboutMeSection",
+        start: "top 75%",
+        end: "bottom 25%",
+        toggleActions: "play none none reverse",
+        once: true
+      }
+    });
+    
+    tl.to(section, {
+      autoAlpha: 1,
+      duration: 0.5,
+      ease: "power1.in"
+    })
+    .to(paragraphs, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.2,
+      ease: "power2.out"
+    }, "-=0.2")
+    .to(imageContainer, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "back.out(1.2)"
+    }, "-=0.3");
+    
+    if (image) {
+      gsap.fromTo(image, 
+        { scale: 0.9, rotation: -2 },
+        { 
+          scale: 1, 
+          rotation: 0, 
+          duration: 0.8, 
+          ease: "elastic.out(1, 0.5)",
+          scrollTrigger: {
+            trigger: "#AboutMeSection",
+            start: "top 75%",
+            once: true
+          }
+        }
+      );
+    }
+    
+  });
+</script>
+
+<style is:global>
+  #AboutMeSection {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  #AboutMeSection img {
+    will-change: transform, opacity;
+  }
+</style>

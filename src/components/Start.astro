@@ -1,0 +1,80 @@
+---
+
+---
+
+<section class="hero">
+  <div class="hero-content">
+      <h1>A <span class="hero-net">.NET</span> Developer</h1>
+      <h2 aria-label="Jherson Castro">JhersonCastro (Bucket!)</h2>
+  </div>
+  <div class="hero-footer flex flex-col items-center space-y-2">
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke-width="1.5" 
+          stroke="currentColor" 
+          aria-hidden="true"
+          class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" 
+              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+      </svg>
+      <p>Scroll down slowly to continue...</p>
+  </div>
+</section>
+<style is:global>
+.hero {
+  height: 100vh; 
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #000; 
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 6rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  text-align: center;
+  text-wrap: balance;
+  margin-top: 0.5rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  flex: 1;
+}
+
+.hero-footer {
+  margin-bottom: 1rem;
+}
+.hero-footer p{
+  text-wrap: balance;
+  text-align: center;
+  font-size: 1.8rem;
+}
+.hero-net{
+    color: #FFD700; 
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  .hero-footer p{
+    font-size: 1rem;
+  }
+}
+
+</style>

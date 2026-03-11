@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Start from '../components/Start.astro'
+import AboutMe from '../components/AboutMe.astro'; 
+import RoundedSection from '../components/RoundedSection.astro';
+import HobbieController from '../components/Hobbies/HobbieController.astro';
+import ProyectController from '../components/Proyects/ProyectController.astro';
+import Form from '../components/Form.astro';
+---
+
+<Layout>
+	<Start></Start>
+	<AboutMe></AboutMe>
+	<RoundedSection></RoundedSection>
+	<div class="bg-linear-to-b from-[#B42B31] to-purple-900 ">
+		<HobbieController></HobbieController>
+		<ProyectController></ProyectController>
+		<Form></Form>
+	</div>
+</Layout>

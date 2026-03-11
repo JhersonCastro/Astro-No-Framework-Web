@@ -1,0 +1,231 @@
+---
+// ContactForm.astro
+---
+
+<section id="contacto-section" class="relative min-h-screen py-16 md:py-24 text-white overflow-hidden">
+  
+  <div class="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
+    <div class="absolute top-20 left-[15%] w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
+    <div class="absolute bottom-40 right-[25%] w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+    <div class="absolute top-60 right-[35%] w-2 h-2 bg-indigo-400 rounded-full animate-ping"></div>
+  </div>
+
+  <div class="container mx-auto px-4 max-w-3xl relative z-20">
+    
+    <!-- Título -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+        Contacto
+      </h2>
+      <p class="text-lg text-purple-200/80 mt-4">
+        ¿Tienes alguna pregunta o simplemente quieres saludar?
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-xl opacity-20"></div>
+      
+      <div class="relative bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden shadow-2xl p-8 md:p-10">
+        
+        <form id="contactForm" class="space-y-6">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Nombre -->
+            <div class="space-y-2">
+              <label for="nickname" class="block text-sm font-medium text-purple-200/80">
+                Nombre de contacto <span class="text-blue-400">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="nickname" 
+                name="nickname"
+                required
+                placeholder="Cómo prefieres que te llame"
+                class="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-white placeholder:text-white/30"
+              />
+            </div>
+            
+            <!-- Email -->
+            <div class="space-y-2">
+              <label for="email" class="block text-sm font-medium text-purple-200/80">
+                Email <span class="text-blue-400">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                required
+                placeholder="tu@email.com"
+                class="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-white placeholder:text-white/30"
+              />
+            </div>
+          </div>
+          
+          <!-- Teléfono -->
+          <div class="space-y-2">
+            <label for="phone" class="block text-sm font-medium text-purple-200/80">
+              Número de contacto <span class="text-blue-400">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone"
+              required
+              placeholder="313 111 2222"
+              class="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-white placeholder:text-white/30"
+            />
+          </div>
+          
+          <!-- Motivo de contacto -->
+          <div class="space-y-2">
+            <label for="motivo" class="block text-sm font-medium text-purple-200/80">
+              Motivo de contacto <span class="text-blue-400">*</span>
+            </label>
+            <select 
+              id="motivo" 
+              name="motivo"
+              required
+              class="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-white"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="pregunta" class="bg-slate-800">Pregunta</option>
+              <option value="donacion" class="bg-slate-800">Donación (sí, porfa)</option>
+              <option value="colaboracion" class="bg-slate-800">Colaboración</option>
+              <option value="saludo" class="bg-slate-800">Solo saludar</option>
+            </select>
+          </div>
+          
+          <!-- Mensaje (textarea) -->
+          <div class="space-y-2">
+            <label for="mensaje" class="block text-sm font-medium text-purple-200/80">
+              Mensaje <span class="text-blue-400">*</span>
+            </label>
+            <textarea 
+              id="mensaje" 
+              name="mensaje"
+              required
+              rows="5"
+              placeholder="Cuéntame, ¿qué te trae por aquí?"
+              class="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-white placeholder:text-white/30 resize-none"
+            ></textarea>
+          </div>
+          
+          <!-- Preferencia de contacto (radio) -->
+          <div class="space-y-3">
+            <p class="text-sm font-medium text-purple-200/80">
+              ¿Cómo prefieres que te contacte? <span class="text-blue-400">*</span>
+            </p>
+            <div class="flex flex-wrap gap-6">
+              <label class="flex items-center gap-2 cursor-pointer group">
+                <input type="radio" name="prefContacto" value="email" required class="w-4 h-4 accent-blue-500" />
+                <span class="text-white/80 group-hover:text-white transition-colors">Email</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer group">
+                <input type="radio" name="prefContacto" value="whatsapp" class="w-4 h-4 accent-green-500" />
+                <span class="text-white/80 group-hover:text-white transition-colors">WhatsApp</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer group">
+                <input type="radio" name="prefContacto" value="telegram" class="w-4 h-4 accent-blue-400" />
+                <span class="text-white/80 group-hover:text-white transition-colors">Telegram</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Términos y condiciones (checkbox) -->
+          <div class="pt-2">
+            <label class="flex items-start gap-3 cursor-pointer group">
+              <input type="checkbox" id="terminos" name="terminos" required class="mt-1 w-4 h-4 accent-blue-500" />
+              <span class="text-sm text-white/80 group-hover:text-white transition-colors">
+                Acepto los <a href="/terminos" class="text-blue-400 hover:text-blue-300 underline decoration-1 underline-offset-2">términos y condiciones</a> <span class="text-blue-400">*</span>
+              </span>
+            </label>
+          </div>
+          
+          <!-- Mensajes de feedback -->
+          <div id="formMessage" class="text-sm min-h-8 text-purple-200/80"></div>
+          
+          <!-- Botón de envío -->
+          <div class="flex justify-end pt-4">
+            <button 
+              type="submit"
+              class="px-8 py-3 bg-linear-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 focus:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500/50 shadow-lg"
+            >
+              Enviar mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const form = e.target;
+    const messageDiv = document.getElementById('formMessage');
+    
+    const nickname = form.nickname.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const motivo = form.motivo.value;
+    const mensaje = form.mensaje.value.trim();
+    const prefContacto = form.querySelector('input[name="prefContacto"]:checked');
+    const terminos = form.terminos.checked;
+    
+    let errors = [];
+    
+    if (!nickname) errors.push('El nombre es obligatorio');
+    if (!email) errors.push('El email es obligatorio');
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Email no válido');
+    
+    if (!phone) errors.push('El teléfono es obligatorio');
+    else if (!/^\d{10}$/.test(phone.replace(/\s/g, ''))) errors.push('Teléfono no válido (deben ser 10 dígitos)');
+    
+    if (!motivo) errors.push('Selecciona un motivo');
+    if (!mensaje) errors.push('El mensaje no puede estar vacío');
+    if (!prefContacto) errors.push('Selecciona una preferencia de contacto');
+    if (!terminos) errors.push('Debes aceptar los términos');
+    
+    if (errors.length > 0) {
+      messageDiv.innerHTML = errors.join('<br>');
+      messageDiv.classList.add('text-red-400');
+      messageDiv.classList.remove('text-green-400');
+    } else {
+      messageDiv.innerHTML = '¡Mensaje enviado! Gracias por contactarme.';
+      messageDiv.classList.add('text-green-400');
+      messageDiv.classList.remove('text-red-400');
+      
+      setTimeout(() => {
+        form.reset();
+        messageDiv.innerHTML = '';
+      }, 3000);
+    }
+  });
+</script>
+
+<style is:global>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #contacto-section {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-style: italic;
+  }
+  
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(30, 41, 59, 0.8) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+</style>
