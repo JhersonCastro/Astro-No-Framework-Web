@@ -11,34 +11,28 @@ const {
   textos = ["Nivel: Universidad", "Institución: Universidad del cauca", "Años: 2023-2026"]
 } = Astro.props;
 ---
-<section id="RotationSection" class="relative min-h-screen overflow-x-hidden flex flex-col lg:flex-row">
-      <table class="min-w-full rounded-xl border-2 border-gray-200 bg-white/90  backdrop-blur-sm">
-        <caption class="text-2xl text-black mb-2">La animacion sin gsap nope, asi que la tabla:D</caption>
-        <thead class="bg-linear-to-r from-sky-400 via-yellow-200 to-red-600">
-          <tr>
-            <th class="px-6 py-3 text-left text-black">Nivel</th>
-            <th class="px-6 py-3 text-left text-black">Institución</th>
-            <th class="px-6 py-3 text-left text-black">Años</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200">
-          <tr class="transition-colors hover:bg-blue-50">
-            <td class="px-6 py-4 font-medium">Universidad</td>
-            <td class="px-6 py-4">Universidad del Cauca</td>
-            <td class="px-6 py-4">2023-2026</td>
-          </tr>
-        </tbody>
-      </table>
+<section id="RotationSection">
+  <table>
+    <caption>La animacion sin gsap nope, asi que la tabla:D</caption>
+    <thead>
+      <tr>
+        <th>Nivel</th>
+        <th>Institución</th>
+        <th>Años</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Universidad</td>
+        <td>Universidad del Cauca</td>
+        <td>2023-2026</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
+
 <style is:global>
-  #info-table {
-    transition: all 0.5s ease;
-  }
-.pin-spacer,
-#RotationSection {
-  box-shadow: none !important;
-  filter: none !important;
-}
+ 
 </style>
 
