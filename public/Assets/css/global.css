@@ -305,3 +305,6 @@ textarea{
   min-height:20px;
   font-size:0.9rem;
 }
+.degradient-bg {
+	background-image: linear-gradient(to bottom, #B42B31, #59168b );
+  }

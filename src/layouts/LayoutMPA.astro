@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+
+	<link rel="icon" type="image/svg+xml" href="/Assets/favicon.svg" />
+	<link rel="icon" href="/Assets/favicon.ico" />
+
+	<meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/Assets/css/global.css">
+	<title>Bucket!</title>
+</head>
+
+<body>
+
+<header class="navbar">
+
+	<div class="nav-container">
+
+		<div class="logo">
+			Bucket
+		</div>
+
+		<nav class="nav-links">
+            <a href="/MPA/">Home</a>
+            <a href="/MPA/aboutme/">About me</a>
+            <a href="/MPA/hobbies/">Hobbies</a>
+            <a href="/MPA/projects/">Projects</a>
+            <a href="/MPA/contact/">Contact</a>
+        </nav>
+
+	</div>
+
+</header>
+
+<main class="main-content">
+	<slot />
+</main>
+
+</body>
+</html>
+
+<style>
+
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f9fafb;
+    color:#111827;
+}
+
+
+.navbar{
+	width:100%;
+	background:#111827;
+	border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav-container{
+	max-width:1100px;
+	margin:auto;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding:16px 20px;
+}
+
+
+.logo{
+	font-weight:700;
+	font-size:1.2rem;
+	letter-spacing:1px;
+}
+
+
+.nav-links{
+	display:flex;
+	gap:24px;
+}
+
+.nav-links a{
+	text-decoration:none;
+	color:#d1d5db;
+	font-size:0.95rem;
+	transition:color .2s ease;
+}
+
+.nav-links a:hover{
+	color:white;
+}
+</style>

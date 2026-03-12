@@ -1,13 +1,12 @@
 ---
 const { Title, Description, Status, ImgSrc } = Astro.props;
-import { Image } from "astro:assets";
 ---
 
 <div class="project-card">
 
   <div class="project-image">
 
-    <Image 
+    <img 
       src={ImgSrc}
       alt={Title}
       class="project-img"

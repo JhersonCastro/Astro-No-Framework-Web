@@ -9,7 +9,8 @@ import Form from '../components/Form.astro';
 ---
 
 <Layout>
-	<Start></Start>
+	<a href="/MPA/index.html">clic para ver la version MPA</a>
+	<Start isSPA={true}></Start>
 	<AboutMe></AboutMe>
 	<RoundedSection></RoundedSection>
 	<div class="degradient-bg">
@@ -18,8 +19,3 @@ import Form from '../components/Form.astro';
 		<Form></Form>
 	</div>
 </Layout>
-<style is:global>
-  .degradient-bg {
-	background-image: linear-gradient(to bottom, #B42B31, #59168b );
-  }
-</style>

@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import programming from "../../assets/Programming.png";
+const relativeRoute = import.meta.url.replace("src/components/Hobbies/Hobbie1.astro", "");
+const programming = "./Assets/images/Programming.png";
 ---
 
 <section id="programming-section" class="section">
@@ -25,7 +25,7 @@ import programming from "../../assets/Programming.png";
         <div class="image-wrapper">
 
           <div class="card">
-            <Image 
+            <img 
               src={programming} 
               alt="Programación - Código en pantalla"
               class="section-img"
