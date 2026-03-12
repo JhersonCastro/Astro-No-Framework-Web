@@ -16,17 +16,9 @@ También se implementa una fecha dinámica que se actualiza automáticamente y u
 
 Además, se incluye una fotografía personal y una descripción sobre mis objetivos dentro del desarrollo de software, especialmente enfocados en el desarrollo backend.
 
-### Dona Giratoria
+### Tabla
 
-Esta sección presenta una animación interactiva basada en scroll. Se muestra una imagen de una dona que gira 360 grados a medida que el usuario se desplaza por la página.
-
-Durante la rotación se producen varios efectos sincronizados:
-
-- El texto cambia cada 90 grados mostrando información relacionada con Universidad, Institución y Años.
-- El color de fondo cambia progresivamente realizando una transición entre los colores blanco, azul, amarillo y rojo.
-- Al finalizar la rotación aparece una tabla con información académica.
-
-El objetivo de esta sección es demostrar el uso de animaciones controladas por scroll utilizando GSAP.
+Esta sección presenta una tabla con el nivel academico, la universidad y los años transcurridos.
 
 ### Pasatiempos
 
@@ -47,8 +39,8 @@ Esta parte del portafolio destaca el videojuego Helldivers 2. Incluye una animac
 ## Tecnologías utilizadas
 
 - Astro
-- Tailwind CSS
-- GSAP
+- CSS
+- JavaScript
 
 Estas tecnologías permiten construir una interfaz moderna, optimizada y con animaciones fluidas.
 
